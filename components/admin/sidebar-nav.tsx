@@ -46,8 +46,9 @@ const navSections: NavSection[] = [
   {
     title: 'Маркетинг',
     items: [
-      { label: 'Meta Ads', href: '/meta-ads', icon: BarChart3 },
-      { label: 'Klaviyo', href: '/klaviyo', icon: Mail },
+      { label: 'Маркетинг', href: '/marketing', icon: BarChart3 },
+      { label: 'Meta Ads', href: '/marketing/meta-ads', icon: BarChart3 },
+      { label: 'Klaviyo', href: '/marketing/klaviyo', icon: Mail },
     ],
     roles: ['manager', 'admin'],
   },
@@ -84,7 +85,7 @@ export function SidebarNav({ role }: { role: string }) {
           </p>
           <div className="space-y-1">
             {section.items.map((item) => {
-              const isActive = pathname === item.href
+              const isActive = pathname === item.href || pathname.startsWith(item.href + '/')
               return (
                 <Link
                   key={item.href}
